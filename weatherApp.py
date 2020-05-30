@@ -3,12 +3,8 @@ import tkinter as tk
 import requests
 
 # variables
-var_width = 600
-var_height = 600
-
-
-def test_function(entry):
-    print("Entered city is :", entry)
+var_width, var_height = 600, 600
+min_width, min_height = 500, 500
 
 
 def required_data(all_data):
@@ -52,6 +48,7 @@ def get_weather(city):
 # root is the lowest level of our window. canvas and frame stay on top of root.
 root = tk.Tk()
 root.title("Weather application")
+root.minsize(min_width, min_height)
 
 # canvas will set the initial size of the window. Without this canvas, you will see a tiny screen.
 canvas = tk.Canvas(root, height=var_height, width=var_width).pack()
@@ -83,7 +80,7 @@ weather_info_button.place(relx=0.75, relheight=1, relwidth=0.25)
 lower_frame = tk.Frame(root, bg="#82e1f5")
 lower_frame.place(relx=0.1, rely=0.3, relwidth=0.8, relheight=0.6)
 weather_info_label = tk.Label(lower_frame, text="Weather details will appear here.", bd=4, justify="left",
-                              font=("Courier",18))
+                              font=("Courier",20))
 weather_info_label.place(relx=0.02, rely=0.02, relheight=0.96, relwidth=0.96)
 
 root.mainloop()
